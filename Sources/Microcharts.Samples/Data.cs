@@ -124,6 +124,47 @@ namespace Microcharts.Samples
             Random r = new Random(18);
             return new Chart[]
             {
+                new CombinationChart
+                {
+                    LabelOrientation = Orientation.Horizontal,
+                    ValueLabelOrientation = Orientation.Horizontal,
+                    LabelTextSize = 42,
+                    ValueLabelTextSize= 18,
+                    SerieLabelTextSize = 42,
+                    ValueLabelOption = ValueLabelOption.TopOfElement,
+                    LegendOption = SeriesLegendOption.Bottom,
+                    Series = new List<ChartSerie>()
+                    {
+                        new ChartSerieCombinate()
+                        {
+                            Name = "UWP",
+                            Color = SKColor.Parse("#2c3e50"),
+                            Entries = GenerateSeriesEntry(r, 10),
+                            Type = ChartSerieCombinateType.Bar
+                        },
+                        new ChartSerieCombinate()
+                        {
+                            Name = "Android",
+                            Color = SKColor.Parse("#77d065"),
+                            Entries = GenerateSeriesEntry(r, 10),
+                            Type = ChartSerieCombinateType.Line
+                        },
+                        new ChartSerieCombinate()
+                        {
+                            Name = "iOS",
+                            Color = SKColor.Parse("#b455b6"),
+                            Entries = GenerateSeriesEntry(r, 10),
+                            Type = ChartSerieCombinateType.Bar
+                        },
+                        new ChartSerieCombinate()
+                        {
+                            Name = "MACOS",
+                            Color = SKColor.Parse("#F44336"),
+                            Entries = GenerateSeriesEntry(r, 10),
+                            Type = ChartSerieCombinateType.Line
+                        },
+                    }
+                },
                 new BarChart
                 {
                     LabelOrientation = Orientation.Horizontal,

@@ -20,7 +20,7 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <DocumentationFile>bin\Debug\$(TargetFramework)\Microcharts.xml</DocumentationFile>
+        <DocumentationFile>bin\Debug\netstandard2.0\Microcharts.xml</DocumentationFile>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="SkiaSharp" Version="2.80.2" />

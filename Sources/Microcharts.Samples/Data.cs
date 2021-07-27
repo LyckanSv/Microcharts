@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microcharts.Charts;
 using SkiaSharp;
 
 namespace Microcharts.Samples
@@ -124,154 +125,46 @@ namespace Microcharts.Samples
             Random r = new Random(18);
             return new Chart[]
             {
-                new CombinationChart
+                
+                new LineLevelChart
                 {
                     LabelOrientation = Orientation.Horizontal,
                     ValueLabelOrientation = Orientation.Horizontal,
-                    LabelTextSize = 42,
-                    ValueLabelTextSize= 18,
-                    SerieLabelTextSize = 42,
-                    ValueLabelOption = ValueLabelOption.TopOfElement,
+                    LabelTextSize = 14,
+                    ValueLabelTextSize= 12,
+                    SerieLabelTextSize = 18,
                     LegendOption = SeriesLegendOption.Bottom,
                     Series = new List<ChartSerie>()
                     {
-                        new ChartSerieCombinate()
+                        new ChartSerieLevel()
                         {
-                            Name = "UWP",
-                            Color = SKColor.Parse("#2c3e50"),
-                            Entries = GenerateSeriesEntry(r, 10),
-                            Type = ChartSerieCombinateType.Bar
+                            Name = "Damages",
+                            Color = SKColor.Parse("#2860D2"),
+                            Entries = GenerateSeriesEntry(r, 12),
                         },
-                        new ChartSerieCombinate()
+                        new ChartSerieLevel()
                         {
-                            Name = "Android",
-                            Color = SKColor.Parse("#77d065"),
-                            Entries = GenerateSeriesEntry(r, 10),
-                            Type = ChartSerieCombinateType.Line
-                        },
-                        new ChartSerieCombinate()
-                        {
-                            Name = "iOS",
-                            Color = SKColor.Parse("#b455b6"),
-                            Entries = GenerateSeriesEntry(r, 10),
-                            Type = ChartSerieCombinateType.Bar
-                        },
-                        new ChartSerieCombinate()
-                        {
-                            Name = "MACOS",
-                            Color = SKColor.Parse("#F44336"),
-                            Entries = GenerateSeriesEntry(r, 10),
-                            Type = ChartSerieCombinateType.Line
-                        },
+                            Name = "Level",
+                            Color = SKColor.Parse("#DD0631"),
+                            Entries = new List<ChartEntry>
+                            {
+                                new ChartEntry(200),
+                                new ChartEntry(200),
+                                new ChartEntry(200),
+                                new ChartEntry(200),
+                                new ChartEntry(200),
+                                new ChartEntry(200),
+                                new ChartEntry(200),
+                                new ChartEntry(200),
+                                new ChartEntry(200),
+                                new ChartEntry(200),
+                                new ChartEntry(200),
+                                new ChartEntry(200)
+
+                            },
+                            IsLevel = true
+                        }
                     }
-                },
-                new BarChart
-                {
-                    LabelOrientation = Orientation.Horizontal,
-                    ValueLabelOrientation = Orientation.Horizontal,
-                    LabelTextSize = 42,
-                    ValueLabelTextSize= 18,
-                    SerieLabelTextSize = 42,
-                    ValueLabelOption = ValueLabelOption.TopOfElement,
-                    LegendOption = SeriesLegendOption.Bottom,
-                    Series = new List<ChartSerie>()
-                    {
-                        new ChartSerie()
-                        {
-                            Name = "UWP",
-                            Color = SKColor.Parse("#2c3e50"),
-                            Entries = GenerateSeriesEntry(r),
-                        },
-                        new ChartSerie()
-                        {
-                            Name = "Android",
-                            Color = SKColor.Parse("#77d065"),
-                            Entries = GenerateSeriesEntry(r),
-                        },
-                        new ChartSerie()
-                        {
-                            Name = "iOS",
-                            Color = SKColor.Parse("#b455b6"),
-                            Entries = GenerateSeriesEntry(r),
-                        },
-                    }
-                },
-                new PointChart
-                {
-                    LabelOrientation = Orientation.Horizontal,
-                    ValueLabelOrientation = Orientation.Horizontal,
-                    LabelTextSize = 42,
-                    ValueLabelTextSize= 18,
-                    SerieLabelTextSize = 42,
-                    LegendOption = SeriesLegendOption.Bottom,
-                    Series = new List<ChartSerie>()
-                    {
-                        new ChartSerie()
-                        {
-                            Name = "UWP",
-                            Color = SKColor.Parse("#2c3e50"),
-                            Entries = GenerateSeriesEntry(r),
-                        },
-                        new ChartSerie()
-                        {
-                            Name = "Android",
-                            Color = SKColor.Parse("#77d065"),
-                            Entries = GenerateSeriesEntry(r),
-                        },
-                        new ChartSerie()
-                        {
-                            Name = "iOS",
-                            Color = SKColor.Parse("#b455b6"),
-                            Entries = GenerateSeriesEntry(r),
-                        },
-                    }
-                },
-                new LineChart
-                {
-                    LabelOrientation = Orientation.Horizontal,
-                    ValueLabelOrientation = Orientation.Horizontal,
-                    LabelTextSize = 42,
-                    ValueLabelTextSize= 18,
-                    SerieLabelTextSize = 42,
-                    LegendOption = SeriesLegendOption.Bottom,
-                    Series = new List<ChartSerie>()
-                    {
-                        new ChartSerie()
-                        {
-                            Name = "UWP",
-                            Color = SKColor.Parse("#2c3e50"),
-                            Entries = GenerateSeriesEntry(r, 4),
-                        },
-                        new ChartSerie()
-                        {
-                            Name = "Android",
-                            Color = SKColor.Parse("#77d065"),
-                            Entries = GenerateSeriesEntry(r, 4),
-                        },
-                        new ChartSerie()
-                        {
-                            Name = "iOS",
-                            Color = SKColor.Parse("#b455b6"),
-                            Entries = GenerateSeriesEntry(r, 4),
-                        },
-                    }
-                },
-                new DonutChart
-                {
-                    Entries = entries,
-                    LabelTextSize = 42,
-                    GraphPosition = GraphPosition.Center,
-                    LabelMode = LabelMode.RightOnly
-                },
-                new RadialGaugeChart
-                {
-                    Entries = entries,
-                    LabelTextSize = 42
-                },
-                new RadarChart
-                {
-                    Entries = entries,
-                    LabelTextSize = 42
                 },
             };
         }
